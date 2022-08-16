@@ -1,12 +1,16 @@
+import { useContext } from "react"
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { Link } from "react-router-dom";
 
 import Form from "../../components/Form";
+import LogoKenzieHub from "../../components/LogoKenzieHub";
+import { AuthContext } from "../../context/AuthContext";
 
 const schema = yup.object({
-  email: yup.string().required("Nome obrigatório!"),
-  password: yup.string().required("Senha obrigatória!"),
+  email: yup.string().email("Deve ser um e-mail").required("Campo obrigatório!"),
+  password: yup.string().required("Campo obrigatório!"),
 });
 
 const Login = () => {
@@ -14,14 +18,13 @@ const Login = () => {
     resolver: yupResolver(schema)
   });
 
-  function loginUser(data) {
-    console.log(data);
-  }
+  const { userLogin } = useContext(AuthContext);
+
 
   return (
     <>
-      {<h2 className="kenziehub">Kenzie Hub</h2>}
-      <Form onSubmit={handleSubmit(loginUser)}>
+      <LogoKenzieHub/>
+      <Form onSubmit={handleSubmit(userLogin)}>
         <div className="formContainer">
           <h3>Login</h3>
 
@@ -37,7 +40,9 @@ const Login = () => {
 
           <div>Ainda não possui uma conta?</div>
 
-          <button className="register">Cadastre-se</button>
+          <Link to="/signup" >
+            <button className="register">Cadastre-se</button>
+          </Link>
         </div>
       </Form>
     </>

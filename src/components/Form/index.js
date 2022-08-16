@@ -7,10 +7,14 @@ const Form = styled.form`
     align-items: center;
 
     width: 85%;
-    height: 500px;
+    height: fit-content;
 
     background-color: var(--color-grey-3);
     color: var(--color-grey-0);
+    box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
+    border-radius: 4px; 
+
+
 
   .formContainer{
     display: flex;
@@ -19,9 +23,9 @@ const Form = styled.form`
     align-items: stretch;
     
     width: 90%;
-    height: 535px;
+    height: fit-content;
     margin: 30px 0px 30px 0px;
-    gap: 5px;
+    gap: 15px;
 
   }
   
@@ -45,7 +49,6 @@ const Form = styled.form`
     font-weight: 400;
     font-size: 12px;
     color: var(--color-grey-0);
-    font-weight: 400;
     font-size: 16px;
 
     background-color: var(--color-grey-2);
@@ -75,6 +78,7 @@ const Form = styled.form`
     align-items: center;
     padding: 0px 23px;
     gap: 10px;
+    text-decoration: none;
     cursor: pointer;
   }
 
@@ -93,6 +97,22 @@ const Form = styled.form`
     color: var(--color-grey-0);
     background-color: var(--color-grey-1);
     border: 1px solid var(--color-grey-1);
+    border-radius: 4px;
+  }
+
+  select{
+    width: 100%;
+    height: 42px;
+    
+    text-align: start;
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--color-grey-0);
+    font-weight: 400;
+    font-size: 14px;
+
+    background-color: var(--color-grey-2);
+    border: 1.2px solid var(--color-grey-0);
     border-radius: 4px;
   }
 

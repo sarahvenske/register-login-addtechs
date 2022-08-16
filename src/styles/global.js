@@ -61,4 +61,17 @@ export default createGlobalStyle`
         border-collapse: collapse;
         border-spacing: 0;
     }
+
+    main{
+        width: 100%;
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        font-family: 'Inter', sans-serif;
+        background-color: var(--color-black);
+}
 `;

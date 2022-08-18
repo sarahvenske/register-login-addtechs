@@ -1,14 +1,16 @@
 import { useContext } from "react"
 import { AuthContext } from "../../context/AuthContext";
 import { Navigate } from "react-router-dom"
-import "./style.css"
-import DashboardPage from "../../DashboardPage";
+import DashboardPage from "../../components/DashboardPage";
 
 const Dashboard = () => {
 
-    const {user}  = useContext(AuthContext);
+    const { user, loading }  = useContext(AuthContext);
     
-    return user ? <DashboardPage/> : <Navigate to="/" replace />
+    if(loading)
+       return <div>Carregando..</div>
+    
+     return user ? <DashboardPage/> : <Navigate to="/" replace />
 }
 
-export default Dashboard;
+export default Dashboard;   

@@ -6,6 +6,7 @@ export const Container = styled.div`
   flex-direction: row;
   justify-content: space-around;
   width: 70%;
+  max-width: 369px;
   margin-bottom: 20px;
 
     button{
@@ -17,6 +18,11 @@ export const Container = styled.div`
     font-weight: 600;
     font-size: 12px;
     cursor: pointer;
+    }
+
+    button:hover{
+      background: var(--color-grey-2);
+      border: 1px solid var(--color-grey-2);
     }
 `
 

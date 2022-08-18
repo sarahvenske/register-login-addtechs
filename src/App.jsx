@@ -1,18 +1,17 @@
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import MainRoutes from "./routes";
-import Global from "./styles/global";
 import AuthProvider from "./context/AuthContext";
+import Global from "./styles/global";
+import MainRoutes from "./routes";
 
 function App() {
   return (
-        <main>
+        <div className="window">
+
           <AuthProvider>
             <Global />
             <MainRoutes />
           </AuthProvider>
-        </main>
 
+        </div>
   );
 }
 

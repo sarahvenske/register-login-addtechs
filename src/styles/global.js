@@ -13,9 +13,7 @@ export default createGlobalStyle`
         --color-success: #3FE864;
         --color-negative: #E83F5B; 
         --color-white: #FFFFFF;
-        --color-black: #000000;
-
-         
+        --color-black: #000000;    
     }
     
     html, body, div, span, applet, object, iframe,
@@ -62,15 +60,13 @@ export default createGlobalStyle`
         border-spacing: 0;
     }
 
-    main{
+    .window{
         width: 100%;
         height: 100vh;
-
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
         font-family: 'Inter', sans-serif;
         background-color: var(--color-black);
 }

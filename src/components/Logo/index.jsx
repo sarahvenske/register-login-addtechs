@@ -1,6 +1,6 @@
 import Container from "./style";
 
-const LogoKenzieHub = () => {
+const Logo = () => {
     return(
             <Container>
                 <h2>Kenzie Hub</h2>
@@ -8,5 +8,5 @@ const LogoKenzieHub = () => {
     )
 }
 
-export default LogoKenzieHub;
+export default Logo;
 

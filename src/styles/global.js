@@ -61,13 +61,47 @@ export default createGlobalStyle`
     }
 
     .window{
+        overflow: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100vh;
+        /* display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; */
+        font-family: 'Inter', sans-serif;
+        background-color: var(--color-black);
+        padding-top: 10px;
+    }
+    
+    .boxLogin{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        font-family: 'Inter', sans-serif;
-        background-color: var(--color-black);
-}
+        width: 100%;
+        height: 100%;
+    }
+
+    .boxRegister{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (max-height: 490px) {
+        .boxLogin{
+            justify-content: flex-start;
+        }
+    }
+    @media (min-height: 980px) {
+        .boxRegister{
+            justify-content: flex-start;
+        }
+    }
 `;

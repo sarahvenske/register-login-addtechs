@@ -82,10 +82,10 @@ const UserRegister = () => {
   }
 
   return (
-    <>
+    <div className="boxRegister">
       <ToastContainer />
       <RegisterHeader/>
-      <Form onSubmit={handleSubmit(registerCreation)}>
+      <Form onSubmit={handleSubmit(registerCreation)} className="register">
         <div className="formContainer">
 
           <h3>Crie sua conta</h3>
@@ -128,7 +128,7 @@ const UserRegister = () => {
 
         </div>
       </Form>
-    </>
+    </div>
   );
 };
 

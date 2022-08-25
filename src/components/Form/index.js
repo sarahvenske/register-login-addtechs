@@ -5,8 +5,10 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 85%;
     height: fit-content;
+    max-height: fit-content;
     background-color: var(--color-grey-3);
     color: var(--color-grey-0);
     box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);

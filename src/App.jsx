@@ -1,15 +1,18 @@
-import AuthProvider from "./context/AuthContext";
+import UserProvider from "./context/UserContext";
 import Global from "./styles/global";
 import MainRoutes from "./routes";
+import TechProvider from "./context/TechContext";
 
 function App() {
   return (
         <div className="window">
 
-          <AuthProvider>
-            <Global />
-            <MainRoutes />
-          </AuthProvider>
+              <UserProvider>
+                <TechProvider>
+                  <Global />
+                  <MainRoutes />
+                </TechProvider>
+              </UserProvider>
 
         </div>
   );

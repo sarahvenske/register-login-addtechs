@@ -1,22 +1,20 @@
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react"
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
-//Components:
+import { UserContext } from "../../context/UserContext";
 import Form from "../../components/Form";
 import RegisterHeader from "../../components/RegisterHeader";
-import api from "../../components/Api";
+
 
 const UserRegister = () => {
-
-  const schema = yup.object({
   
+  const schema = yup.object({
+    
     name: yup.string()
     .required("Campo obrigatório!"),
-  
+    
     email: yup.string()
     .email("Deve ser um e-mail")
     .required("Campo obrigatório!"),
@@ -25,67 +23,31 @@ const UserRegister = () => {
     .matches(
       /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
       "Sua senha deve conter pelo menos uma letra maiúscula, um número e um caractere especial!"
-    )
-    .required("Informe sua senha!"),  
-  
-    confirmPassword: yup.string()
-    .oneOf([yup.ref("password")], "Deve ser igual a senha informada")
-    .required("Confirme sua senha"),
-  
-    bio: yup.string()
-    .required("Campo obrigatório!"),
-  
-    contact: yup.string()
-    .required("Campo obrigatório!"),
+      )
+      .required("Informe sua senha!"),  
+      
+      confirmPassword: yup.string()
+      .oneOf([yup.ref("password")], "Deve ser igual a senha informada")
+      .required("Confirme sua senha"),
+      
+      bio: yup.string()
+      .required("Campo obrigatório!"),
+      
+      contact: yup.string()
+      .required("Campo obrigatório!"),
+      
+    });
     
-  });
+    const { register, handleSubmit, formState:{ errors }} = useForm({
+      resolver: yupResolver(schema)
+    });
+    
+    const { userSignup } = useContext(UserContext);
   
-  const { register, handleSubmit, formState:{ errors }} = useForm({
-    resolver: yupResolver(schema)
-  });
-
-  const navigate = useNavigate()
-
-  const registerCreation = (user) => {
-      
-    api.post("/users", user)
-    .then((response) => {
-      console.log(response)
-      if(response.status === 200){
-
-        toast.success('Conta criada com sucesso!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-
-        navigate("/")
-      }
-    })
-    .catch((error) => {
-      console.log(error)
-      toast.error('Ops, algo deu errado!', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        });
-      
-    })
-  }
-
   return (
     <div className="boxRegister">
-      <ToastContainer />
       <RegisterHeader/>
-      <Form onSubmit={handleSubmit(registerCreation)} className="register">
+      <Form onSubmit={handleSubmit(userSignup)} className="register">
         <div className="formContainer">
 
           <h3>Crie sua conta</h3>

@@ -1,4 +1,4 @@
-import {createContext, useEffect, useState} from 'react'
+import {createContext } from 'react'
 import { toast } from 'react-toastify';
 import api from '../components/Api';
 
@@ -11,31 +11,15 @@ const TechProvider = ({children}) => {
 
     const { user, setUser }  = useContext(UserContext);
     
-    const addNewTech = () => {
-        console.log("Clique add tech")
-        // Função para abrir o modal (pesquisar);
-    } 
-    
     const saveNewTech = (tech) => {
         
         api.post("/users/techs", tech)
         .then((response) => {
             toast.success("Tecnologia criada com sucesso!")
             setUser({...user, techs: [...user.techs, tech]})
-
-            console.log("response", response)
-            console.log("user", user)
         }).catch((error) => {
             toast.error("Ops! Esta tecnologia já existe. Tente atualizá-la")
         })
-        console.log("tecnologia salva com sucesso", tech)
-        console.log("user", user)
-    }
-        
-    
-    const closeModal = () => {
-        console.log("fechar modal")
-        // Função para fechar o modal (pesquisar);
     }
 
     const removeTech = (tech) => {
@@ -48,11 +32,10 @@ const TechProvider = ({children}) => {
             setUser({...user, techs: filteredTechs})
             toast.success("A tecnologia foi removida!")
         })
-        console.log("tecnologia removida")
     }
 
     return(
-        <TechContext.Provider value={{ addNewTech, saveNewTech, closeModal, removeTech }}>
+        <TechContext.Provider value={{ saveNewTech, removeTech }}>
             {children}
         </TechContext.Provider>
     )

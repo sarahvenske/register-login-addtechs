@@ -40,7 +40,7 @@ button{
 button:hover{
       background: var(--color-grey-2);
       border: 1px dotted var(--color-grey-2);
-    }
+}
 
 .firstSection{
   display: flex;
@@ -148,7 +148,6 @@ li h3{
   font-weight: 700;
   font-size: 14px;
   color: var(--color-grey-0);
-
 }
 
 li div{
@@ -189,7 +188,7 @@ li div button{
   .divClose{
     width: 30%;
     justify-content: space-between;
-}
+  }
 }
 
 @media (min-width: 768px)  {
@@ -199,24 +198,24 @@ li div button{
   justify-content: space-between;
   align-items: center;
   width: 80%;
-}
+  }
 
-.techBox{
-  width: 90%;
-}
+  .techBox{
+    width: 90%;
+  }
 
-li h3{
-  margin-left: 12px;
-}
+  li h3{
+    margin-left: 12px;
+  }
 
-li div{
-  margin-right: 12px;
-}
+  li div{
+    margin-right: 12px;
+  }
 
-.divClose{
-    width: 17%;
-    justify-content: space-between;
-}
+  .divClose{
+      width: 17%;
+      justify-content: space-between;
+  }
 }`
 
 export default Container;

@@ -89,7 +89,6 @@ const Form = styled.form`
     border: 1px solid var(--color-primary-focus);
   }
 
-
   .formContainer .register{
     font-weight: 500;
     font-size: 16px;

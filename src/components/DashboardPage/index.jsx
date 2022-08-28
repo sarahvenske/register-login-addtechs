@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { UserContext } from "../../context/UserContext";
 import { TechContext } from "../../context/TechContext";
 import { MdDelete } from "react-icons/md"
@@ -6,12 +6,23 @@ import { MdDelete } from "react-icons/md"
 import Container from "./style";
 import Logo from "../Logo";
 import TechForm from "../TechForm";
+import Modal from "../Modal";
 
 const DashboardPage = () => {
 
     const { user, userLogout } = useContext(UserContext);
-    const { addNewTech, removeTech } = useContext(TechContext)
+    const { removeTech } = useContext(TechContext)
 
+    const [isOpenModal, setIsOpenModal] = useState(false)
+
+    const openModal = () => {
+        setIsOpenModal(true)
+    }
+
+    const closeModal = (e) => {
+        e.preventDefault()
+        setIsOpenModal(false)
+    }
 
     return(
             <Container>
@@ -29,10 +40,15 @@ const DashboardPage = () => {
                         </div>
                     </section>
                     <section className="techSection">
+                        {isOpenModal && (
+                            <Modal>
+                                <TechForm closeModal = {closeModal}/>
+                            </Modal>
+                        )}
                         <div className="techBox">
                             <div className="techTitle">
                                 <h3>Tecnologias</h3>
-                                <button onClick={addNewTech}>+</button>
+                                <button onClick={openModal}>+</button>
                             </div>
                             <div className="techList">
                                 <ul>
@@ -48,9 +64,6 @@ const DashboardPage = () => {
                                 </ul>
                             </div>
                         </div>
-                    </section>
-                    <section className="modal">
-                        <TechForm/>
                     </section>
                 </main>
             </Container>

@@ -95,6 +95,7 @@ export default createGlobalStyle`
             justify-content: flex-start;
         }
     }
+    
     @media (min-height: 980px) {
         .boxRegister{
             justify-content: flex-start;

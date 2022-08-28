@@ -6,27 +6,26 @@ import * as yup from "yup";
 import { TechContext } from "../../context/TechContext";
 import Container from "./style";
 
-const TechForm = () => {
+const TechForm = ({ closeModal }) => {
 
     const schema = yup.object({
         
         title: yup.string()
         .required("O campo não pode ser vazio"),
-
     })
 
     const { register, handleSubmit, formState:{ errors }} = useForm({
         resolver: yupResolver(schema)
       });
 
-      const { saveNewTech, closeModal } = useContext(TechContext);
+      const { saveNewTech } = useContext(TechContext);
 
     return(
             <Container onSubmit={handleSubmit(saveNewTech)}>
                 <div className="titleModalContainer">
                     <div className="modalTitle">
                         <h3>Cadastrar Tecnologia</h3>
-                        <button onClick={closeModal}>X</button>
+                        <button onClick = { closeModal }>X</button>
                     </div> 
                 </div>
                 <div className="inputsModalContainer">

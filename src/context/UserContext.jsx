@@ -40,12 +40,9 @@ const UserProvider = ({children}) => {
             setUser(userResponse)
             localStorage.setItem("@context-kenziehub:token", token)
             navigate("/dashboard", {replace: true})
-            console.log("userResponse", userResponse)
         }).catch((error) => {
             toast.error("Ops! Algo deu errado")
         })
-        console.log("data", data)
-    
     }
 
     const userSignup = (user) => {
@@ -65,10 +62,8 @@ const UserProvider = ({children}) => {
         setUser(null)
         localStorage.clear()
         navigate("/", {replace: true})
-        console.log("logout", user)
     }
-
-
+    
     return(
         <UserContext.Provider value={{ user, setUser, loading, userLogin, userSignup, userLogout}}>
             {children}

@@ -33,13 +33,14 @@ button{
   border-radius: 4px;
   color: var(--color-grey-0);
   font-weight: 600;
-  font-size: 12px;
+  font-size: 14px;
   cursor: pointer;
 }
 
 button:hover{
-      background: var(--color-grey-2);
-      border: 1px dotted var(--color-grey-2);
+      color: var(--color-grey-4);
+      background: var(--color-grey-1);
+      border: 1px dotted var(--color-grey-1);
 }
 
 .firstSection{
@@ -105,6 +106,12 @@ button:hover{
     font-size: 19px;
 }
 
+.techTitle button:hover{
+    color: var(--color-grey-4);
+    background: var(--color-grey-1);
+    border: 1px dotted var(--color-grey-1);
+}
+
 .techList{
   overflow: auto;
   display: flex;
@@ -121,8 +128,8 @@ ul{
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 90%;
-  height: 95%;
+  width: 95%;
+  height: 92%;
   gap: 10px;
   border-radius: 4px;
 }
@@ -181,8 +188,19 @@ li div button{
 }
 
 @media (min-width: 400px) {
+    ul{
+    width: 90%;
+    height: 85%;
+  }
+
   li div button{
     display: block;
+  }
+  
+  li div button:hover{
+    color: var(--color-grey-4);
+    background: var(--color-grey-1);
+    border: 1px dotted var(--color-grey-1);
   }
 
   .divClose{

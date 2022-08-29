@@ -15,6 +15,16 @@ export const Container = styled.div`
         justify-content: center;
         width: 100%;
     }
+
+    @media (max-height: 530px) {
+        .modalComponentBox{
+            overflow-y: scroll;
+        }
+    }
+
+    @media (min-width: 768px) {
+        margin-top: 50px;
+    }
 `;
 
 export default Container;

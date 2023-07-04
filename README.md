@@ -1,4 +1,4 @@
-# Register form, login and informations input (React)
+# Register form, login and informations input FrontEnd (React)
 
 ## About
 This is a frontend application where users can register, login and then access a page where is possible to "add information like technologies". The main goal was to develop the register and login forms using react-hook-form and yup by consuming a fake API from Heroku. 
